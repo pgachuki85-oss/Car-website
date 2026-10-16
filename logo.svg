@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#logoGradient)" opacity="0.1"/>
+  
+  <!-- Car Icon -->
+  <g transform="translate(50, 60)">
+    <!-- Car Body -->
+    <path d="M10 50 L15 30 L35 25 L65 25 L85 30 L90 50 L10 50" fill="url(#logoGradient)" stroke="#1a1a2e" stroke-width="2"/>
+    
+    <!-- Car Roof -->
+    <path d="M25 25 L30 10 L70 10 L75 25" fill="url(#logoGradient)" stroke="#1a1a2e" stroke-width="2"/>
+    
+    <!-- Windows -->
+    <rect x="32" y="12" width="15" height="10" fill="#1a1a2e" opacity="0.3"/>
+    <rect x="53" y="12" width="15" height="10" fill="#1a1a2e" opacity="0.3"/>
+    
+    <!-- Wheels -->
+    <circle cx="25" cy="55" r="12" fill="#1a1a2e" stroke="url(#logoGradient)" stroke-width="3"/>
+    <circle cx="75" cy="55" r="12" fill="#1a1a2e" stroke="url(#logoGradient)" stroke-width="3"/>
+    
+    <!-- Wheel Details -->
+    <circle cx="25" cy="55" r="5" fill="url(#logoGradient)"/>
+    <circle cx="75" cy="55" r="5" fill="url(#logoGradient)"/>
+    
+    <!-- Headlights -->
+    <circle cx="12" cy="42" r="4" fill="#fff" opacity="0.8"/>
+    <circle cx="88" cy="42" r="4" fill="#fff" opacity="0.8"/>
+  </g>
+  
+  <!-- Sparkle Effects -->
+  <circle cx="45" cy="35" r="3" fill="#ff6b6b" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="155" cy="45" r="2" fill="#e94560" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="140" cy="150" r="2.5" fill="#ff6b6b" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,230 @@
+/**
+ * Products Data Module
+ * Contains all product information for UNIQUE AUTO SPARES
+ * This file serves as a central product catalog
+ */
+
+const products = [
+    {
+        id: 'seat-covers',
+        name: 'Seat Covers',
+        category: 'interior',
+        image: 'seat_covers.png',
+        description: 'Seat covers for interior protection and style. Confirm material, colour and vehicle fitment before ordering.',
+        price: 3900,
+        priceLabel: 'Indicative example',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Universal fit', 'Durable material', 'Easy installation']
+    },
+    {
+        id: 'steering-covers',
+        name: 'Steering Wheel Covers',
+        category: 'interior',
+        image: 'steering_covers.png',
+        description: 'Steering wheel covers in a range of styles. Confirm size and availability with the shop.',
+        price: 1200,
+        priceLabel: 'Indicative example',
+        compatibility: false,
+        stock: 'confirm with shop',
+        features: ['Anti-slip grip', 'Various styles', 'Universal fit']
+    },
+    {
+        id: 'car-perfumes',
+        name: 'Car Perfumes',
+        category: 'care',
+        image: 'car_perfumes.png',
+        description: 'Car fragrance options. Ask the shop about available scents and sizes.',
+        price: 750,
+        priceLabel: 'Indicative example',
+        compatibility: false,
+        stock: 'confirm with shop',
+        features: ['Long-lasting fragrance', 'Various scents', 'Easy to use']
+    },
+    {
+        id: 'headlights',
+        name: 'Headlights',
+        category: 'lighting',
+        image: 'headlights.png',
+        description: 'Replacement and upgrade headlights. Vehicle make, model, year and fitting specification should be checked before purchase.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Bright illumination', 'Vehicle-specific', 'Easy installation']
+    },
+    {
+        id: 'fog-lights',
+        name: 'Fog Lights',
+        category: 'lighting',
+        image: 'fog_lights.png',
+        description: 'Fog light options. Confirm vehicle compatibility and specifications before ordering.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Enhanced visibility', 'Weather-resistant', 'Vehicle-specific']
+    },
+    {
+        id: 'snake-lights',
+        name: 'Snake Lights',
+        category: 'lighting',
+        image: 'snake_lights.png',
+        description: 'Flexible automotive lighting options. Ask the shop to confirm specifications and availability.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: false,
+        stock: 'confirm with shop',
+        features: ['Flexible design', 'Multiple colors', 'Easy installation']
+    },
+    {
+        id: 'evil-eyes',
+        name: 'Evil Eyes',
+        category: 'exterior',
+        image: 'car_evil_eyes.png',
+        description: 'Exterior styling accessories. Confirm the exact product and vehicle fitment with the shop.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Stylish design', 'Weather-resistant', 'Vehicle-specific']
+    },
+    {
+        id: 'floor-mats',
+        name: 'Car Floor Mats',
+        category: 'interior',
+        image: 'car_floor_mats.png',
+        description: 'Floor mats for interior protection. Confirm vehicle fit and available styles before ordering.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Durable material', 'Easy to clean', 'Vehicle-specific']
+    },
+    {
+        id: 'door-visors',
+        name: 'Door Visors',
+        category: 'exterior',
+        image: 'door_visors.png',
+        description: 'Door visor options. Confirm the shape and fitment for your vehicle.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Weather protection', 'Stylish look', 'Vehicle-specific']
+    },
+    {
+        id: 'phone-holder',
+        name: 'Phone Holder',
+        category: 'electronics',
+        image: 'phone_holder.png',
+        description: 'Phone holder options for your vehicle. Confirm available mounting styles with the shop.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: false,
+        stock: 'confirm with shop',
+        features: ['Secure hold', 'Adjustable angle', 'Universal fit']
+    },
+    {
+        id: 'car-charger',
+        name: 'Car Charger',
+        category: 'electronics',
+        image: 'car_charger.png',
+        description: 'Car charging accessories. Ask the shop to confirm available ports and charging specifications.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: false,
+        stock: 'confirm with shop',
+        features: ['Fast charging', 'Multiple ports', 'Universal compatibility']
+    },
+    {
+        id: 'rear-spoiler',
+        name: 'Rear Spoiler',
+        category: 'exterior',
+        image: 'rear_spoiler.png',
+        description: 'Exterior styling options. Vehicle compatibility and installation should be confirmed.',
+        price: null,
+        priceLabel: 'Price on request',
+        compatibility: true,
+        stock: 'confirm with shop',
+        features: ['Aerodynamic design', 'Stylish appearance', 'Vehicle-specific']
+    }
+];
+
+// Product categories
+const categories = [
+    { id: 'all', name: 'All Products' },
+    { id: 'interior', name: 'Interior Accessories' },
+    { id: 'lighting', name: 'Lighting Accessories' },
+    { id: 'exterior', name: 'Exterior Accessories' },
+    { id: 'care', name: 'Car Care & Fragrance' },
+    { id: 'electronics', name: 'Electronic Accessories' }
+];
+
+// Helper function to get product by ID
+function getProductById(id) {
+    return products.find(product => product.id === id);
+}
+
+// Helper function to get products by category
+function getProductsByCategory(categoryId) {
+    if (categoryId === 'all') return products;
+    return products.filter(product => product.category === categoryId);
+}
+
+// Helper function to search products
+function searchProducts(query) {
+    const searchTerm = query.toLowerCase().trim();
+    if (!searchTerm) return products;
+    return products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm) ||
+        product.description.toLowerCase().includes(searchTerm) ||
+        product.category.toLowerCase().includes(searchTerm)
+    );
+}
+
+// Helper function to filter products by price range
+function filterByPrice(minPrice, maxPrice) {
+    return products.filter(product => {
+        if (product.price === null) return false;
+        const price = product.price;
+        return price >= minPrice && price <= maxPrice;
+    });
+}
+
+// Helper function to get products with prices only
+function getPricedProducts() {
+    return products.filter(product => product.price !== null);
+}
+
+// Helper function to format price in Kenyan Shillings
+function formatPrice(amount) {
+    if (amount === null) return 'Price on request';
+    return `KSh ${Number(amount).toLocaleString('en-KE')}`;
+}
+
+// Export for use in other modules (if using ES6 modules)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        products,
+        categories,
+        getProductById,
+        getProductsByCategory,
+        searchProducts,
+        filterByPrice,
+        getPricedProducts,
+        formatPrice
+    };
+}
+
+// Make available globally for current setup
+window.Products = {
+    products,
+    categories,
+    getProductById,
+    getProductsByCategory,
+    searchProducts,
+    filterByPrice,
+    getPricedProducts,
+    formatPrice
+};
